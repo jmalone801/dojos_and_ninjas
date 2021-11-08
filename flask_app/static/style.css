@@ -1,0 +1,26 @@
+* {
+    padding: 0px;
+    margin: 0px;
+
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 30px;
+}
+
+.container1{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.container1Content {
+    width: 400px;
+    justify-content: center;
+}
+
+
+

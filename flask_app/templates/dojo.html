@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos & Ninjas</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div id="container">
+        <div id="leftBox">
+            <div id="leftBoxContent">
+                <h1>New Dojo</h1>
+                <form action="/create_dojo" method="post">
+                    <label for="name">Dojo Name:</label><br>
+                    <input type="text" class="form-control" id="name" name="name"><br>
+                    <input type="submit" value="Create" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+        <div id="rightBox">
+            <div id="rightBoxContent">
+                <h1 class="card-title">All Dojos</h1><br>
+                <div class="card text-left" style="width: 300px;">
+                    <div class="card-body">
+                        {% for x in dojo%}
+                        <p><a href="/dojo_ninjas/{{x.id}}">{{ x.name }}</a></p>
+                        {% endfor %}
+                    </div>
+                </div>
+                <br>
+                <a href="/new_ninja">Add a Ninja</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

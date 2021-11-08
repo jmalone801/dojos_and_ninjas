@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos & Ninjas</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container1">
+        <div class="container1Content">
+            <h1>New Ninja</h1>
+            <form action="/create_ninja" method="post">
+                <label for="location">Select Location:</label><br>
+                <select class="box" name="dojo_id">
+                    {% for d in dojos%}
+                    <option value="{{d.id}}" selected="selected">{{d.name}}</option>
+                    {% endfor %}
+                </select>
+                <br>
+                <label for="first_name">First Name:</label>
+                <input type="text" class="form-control" id="first_name" name="first_name">
+                <label for="last_name">Last Name:</label>
+                <input type="text" class="form-control" id="last_name" name="last_name">
+                <label for="age">Age:</label>
+                <input type="text" class="form-control" id="age" name="age"><br>
+                <input type="submit" value="Create New Ninja" class="btn btn-primary">
+                <a id="home" class="btn btn-primary" style="width: 80px;" href="/">Home</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
